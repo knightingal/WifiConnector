@@ -42,9 +42,7 @@ public class MainActivity extends AppCompatActivity {
                     Process localProcess = Runtime.getRuntime().exec("su");
 
                     DataOutputStream os = new DataOutputStream(localProcess.getOutputStream());
-                    // DataInputStream osRes = new DataInputStream(localProcess.getInputStream());
 
-                    //os.writeBytes("id\n");
                     os.writeBytes("setprop service.adb.tcp.port 5555\n");
                     os.writeBytes("stop adbd\n");
                     os.writeBytes("start adbd\n");
@@ -52,29 +50,6 @@ public class MainActivity extends AppCompatActivity {
 
                     os.flush();
 
-
-
-                    // String currUid = osRes.readLine();
-                    // boolean exitSu = false;
-                    // if (currUid == null) {
-                    //     retval = false;
-                    //     exitSu = false;
-                    //     Log.d("ROOT", "Cant get root access or denied by user");
-
-                    // } else if (currUid.contains("uid=0")) {
-                    //     retval = true;
-                    //     exitSu = true;
-                    //     Log.d("ROOT", "Root access granted");
-                    // } else {
-                    //     retval = false;
-                    //     exitSu = true;
-                    //     Log.d("ROOT", "Root access rejected" + currUid);
-                    // }
-
-                    // if (exitSu) {
-                    //     os.writeBytes("exit\n");
-                    //    os.flush();
-                    // }
 
                 } catch (IOException e) {
                     e.printStackTrace();
