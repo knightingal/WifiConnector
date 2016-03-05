@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                     // DataInputStream osRes = new DataInputStream(localProcess.getInputStream());
 
                     //os.writeBytes("id\n");
-                    os.writeBytes("setprog service.adb.tcp.port 5555\n");
+                    os.writeBytes("setprop service.adb.tcp.port 5555\n");
                     os.writeBytes("stop adbd\n");
                     os.writeBytes("start adbd\n");
 
